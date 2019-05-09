@@ -1,9 +1,4 @@
-<!--
-  Generated template for the SolicitaOrcamentoPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar>
     <ion-title>solicita-orcamento</ion-title>
@@ -12,4 +7,54 @@
 
 <ion-content padding>
 
+    <form [formGroup]="formServicos">
+        <ion-item>
+            <ion-label stacked>Nome</ion-label>
+            <ion-input type="text" formControlName="name"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Email</ion-label>
+            <ion-input type="text" formControlName="email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Telefone</ion-label>
+            <ion-input type="text" formControlName="telefone"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Endereço</ion-label>
+            <ion-input type="text" formControlName="endereco"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!formServicos.controls.name.valid && (formServicos.controls.name.dirty || formServicos.controls.name.touched)"
+            color="danger">
+            <div [hidden]="!formServicos.controls.name.errors.required">
+              O campo é obrigatório
+            </div>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Categorias do Serviço:</ion-label>
+            <ion-select formControlName="categoryKey" (ionChange)="getCategorias()" interface="popover">
+              <ion-option value="" [selected]="true">Selecione</ion-option>
+              <ion-option *ngFor="let category of categorias | async" [value]="category.key">{{ category.name }}</ion-option>
+            </ion-select>
+        </ion-item>
+
+
+      <ion-item>
+        <ion-label class="form-control-label">Medidas</ion-label>
+        <ion-input type="text" class="form-control" formControlName="medidas"></ion-input>
+      </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Deixe aqui o Resumo do Serviço:</ion-label>
+        <ion-input type="text" formControlName="mensagem"></ion-input>
+    </ion-item>
+
+    <button ion-button block color="dark" clear navPush="">Enviar</button>
+    <button ion-button block color="dark" clear navPush=""></button>
+
+  </form>
+
+
 </ion-content>
+
