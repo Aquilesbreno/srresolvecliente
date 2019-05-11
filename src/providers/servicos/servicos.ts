@@ -3,12 +3,7 @@ import {AngularFireDatabase} from '@angular/fire/database';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { map, finalize } from 'rxjs/operators';
 
-/*
-  Generated class for the ServicosProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class ServicosProvider {
   private PATH='servicos/';

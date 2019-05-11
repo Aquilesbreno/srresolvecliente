@@ -5,12 +5,6 @@ import { ServicosProvider } from './../../providers/servicos/servicos';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 
-/**
- * Generated class for the SolicitaOrcamentoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
